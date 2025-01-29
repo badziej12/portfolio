@@ -1,0 +1,125 @@
+.hero {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  perspective: 7rem;
+  overflow: hidden;
+
+  h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 6.4rem;
+    color: #00689F;
+    text-transform: uppercase;
+    text-shadow: 0 .4rem 0 #A67CE4;
+    transform: rotateX(0) translateY(0);
+    animation: moveShadow 5s 2s infinite, textMoveIn 2s forwards;
+    cursor: default;
+    user-select: none;
+    transition: .4s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    span {
+      color: #FDF7FF;
+    }
+  }
+
+  &__image, svg {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+    animation: earthMoveIn 3s forwards, earthRotate 200s 3s infinite linear;
+    transform-origin: bottom;
+    max-width: 190rem;
+
+    path {
+      stroke: #0B0C10;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: black;
+    }
+  }
+}
+
+@keyframes earthRotate {
+  0% {
+    transform: rotate(10deg) translateY(50%);
+  }
+
+  100% {
+    transform: rotate(360deg) translateY(50%);
+  }
+}
+
+@keyframes earthMoveIn {
+  0% {
+    transform: rotate(0) translateY(100%);
+  }
+
+  100% {
+    transform: rotate(10deg) translateY(50%);
+  }
+}
+
+@keyframes textMoveIn {
+  0% {
+    transform: rotateX(30deg) translateY(10rem);
+  }
+
+  100% {
+    transform: rotateX(0) translateY(0);
+  }
+}
+
+@keyframes crawl {
+  0% {
+    transform: rotateX(0) translateY(0);
+
+  }
+
+  10% {
+    transform: rotateX(30deg) translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateX(30deg) translateY(-180px);
+    opacity: 0 /* Koniec: głęboko w przestrzeni */
+  }
+}
+
+@keyframes moveShadow {
+  0% {
+    text-shadow: 0 .4rem 0 #A67CE4;
+  }
+
+  5% {
+    text-shadow: .4rem 0 .4rem #A67CE4;
+  }
+
+  10% {
+    text-shadow: .4rem .4rem 0 #A67CE4;
+  }
+
+  15% {
+    text-shadow: 0 0 .4rem #A67CE4;
+  }
+
+  20% {
+    text-shadow: 0 .4rem 0 #A67CE4;
+  }
+
+}
