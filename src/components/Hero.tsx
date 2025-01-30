@@ -1,14 +1,7 @@
-import {useElementOnScreen} from "@/hooks/useElementOnScreen";
-
 export const Hero = () => {
-    const [containerRef, isVisible] = useElementOnScreen({
-        root: null,
-        rootMargin: "0px",
-        threshold: 1.0,
-    })
 
     return (
-        <header ref={containerRef} className={`hero ${isVisible ? "active" : "not"}`}>
+        <header id={"hero"} className={"hero active"}>
             <h1>Błażej Tondel <br/><span>Front-End Developer</span></h1>
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px"
                      viewBox="0 0 5004.854 5005.001" enable-background="new 0 0 5004.854 5005.001">

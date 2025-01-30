@@ -15,10 +15,10 @@
     text-transform: uppercase;
     text-shadow: 0 .4rem 0 #A67CE4;
     transform: rotateX(0) translateY(0);
-    animation: moveShadow 5s 2s infinite, textMoveIn 2s forwards;
     cursor: default;
     user-select: none;
     transition: .4s;
+    opacity: 0;
 
     &:hover {
       transform: scale(1.2);
@@ -26,6 +26,18 @@
 
     span {
       color: #FDF7FF;
+    }
+  }
+
+  &.active {
+    h1 {
+      animation: moveShadow 5s 2s infinite, textMoveIn 2s .2s forwards;
+    }
+  }
+
+  &.fade-away {
+    h1{
+      animation: fadeAway 1s forwards;
     }
   }
 
@@ -76,28 +88,13 @@
 
 @keyframes textMoveIn {
   0% {
-    transform: rotateX(30deg) translateY(10rem);
-  }
-
-  100% {
-    transform: rotateX(0) translateY(0);
-  }
-}
-
-@keyframes crawl {
-  0% {
-    transform: rotateX(0) translateY(0);
-
-  }
-
-  10% {
-    transform: rotateX(30deg) translateY(0);
     opacity: 1;
+    transform: rotateX(30deg) translateY(110%);
   }
 
   100% {
-    transform: rotateX(30deg) translateY(-180px);
-    opacity: 0 /* Koniec: głęboko w przestrzeni */
+    opacity: 1;
+    transform: rotateX(0) translateY(0);
   }
 }
 
@@ -122,4 +119,20 @@
     text-shadow: 0 .4rem 0 #A67CE4;
   }
 
+}
+
+@keyframes fadeAway {
+  0% {
+    transform: rotateX(0) translateY(0);
+  }
+
+  30% {
+    transform: rotateX(15deg) translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateX(15deg) translateY(-100%);
+    opacity: 0;
+  }
 }

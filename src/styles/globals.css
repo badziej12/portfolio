@@ -2,14 +2,18 @@
 
 html {
     font-size: 10px;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 }
 
 html,
 body {
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 body {
+    --scrollDistance: 0vh;
+
     background: linear-gradient(150deg, #0B0C10 0%, #2D1B4A 50%, #240046 75%, #1B2845 100%);
     font-family: Righteous, serif;
     -webkit-font-smoothing: antialiased;
@@ -34,12 +38,6 @@ a {
     }
 }
 
-#__next {
-    height: 100%;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-}
-
 main, header {
     display: flex;
     flex-direction: column;
@@ -48,4 +46,13 @@ main, header {
 .test-section {
     height: 100vh;
     scroll-snap-align: start;
+}
+
+.slider {
+    --scrollDistance: 0vh;
+
+    position: relative;
+    top: var(--scrollDistance);
+    transition: 2.5s;
+    transition-delay: .2s;
 }
