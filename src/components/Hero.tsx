@@ -1,13 +1,15 @@
-import Image from "next/image";
-
+import {useElementOnScreen} from "@/hooks/useElementOnScreen";
 
 export const Hero = () => {
-    const heroImage = "/assets/images/hero/hero-image.png";
+    const [containerRef, isVisible] = useElementOnScreen({
+        root: null,
+        rootMargin: "0px",
+        threshold: 1.0,
+    })
 
     return (
-        <header className={"hero"}>
+        <header ref={containerRef} className={`hero ${isVisible ? "active" : "not"}`}>
             <h1>Błażej Tondel <br/><span>Front-End Developer</span></h1>
-            {/*<Image className={"hero__image"} src={heroImage} alt={"Hero image"} height={900} width={900}/>*/}
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px"
                      viewBox="0 0 5004.854 5005.001" enable-background="new 0 0 5004.854 5005.001">
                     <g>

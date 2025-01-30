@@ -1,11 +1,11 @@
 .hero {
   position: relative;
   text-align: center;
-  height: 100%;
+  height: 100vh;
   justify-content: center;
   align-items: center;
   perspective: 7rem;
-  overflow: hidden;
+  scroll-snap-align: start;
 
   h1 {
     position: relative;
